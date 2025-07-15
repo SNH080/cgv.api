@@ -13,6 +13,13 @@ export const TabHeader = styled.div`
   align-items: baseline;
   justify-content: space-between;
   padding: 50px 0 20px;
+
+  & > div {
+    color: #fff;
+  }
+  & > div:last-child {
+    cursor: pointer;
+  }
 `;
 
 export const MenuWrap = styled.div`
