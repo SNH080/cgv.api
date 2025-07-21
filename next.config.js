@@ -5,6 +5,10 @@ const nextConfig = {
     REACT_APP_BOX_OFFICE_KEY: process.env.REACT_APP_BOX_OFFICE_KEY,
     REACT_APP_MOVIES_SERVICE_KEY: process.env.REACT_APP_MOVIES_SERVICE_KEY,
   },
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;

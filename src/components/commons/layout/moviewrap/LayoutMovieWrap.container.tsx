@@ -2,11 +2,23 @@ import React, { useEffect, useState } from "react";
 import FooterPresenter from "./LayoutMovieWrap.presenter";
 import * as S from "./LayoutMovieWrap.styles";
 import {
+  BoxOfficeMovie,
   LayoutMovieWrapTitle01Props,
   TabDataType,
 } from "./LayoutMovieWrap.types";
-import { fetchBoxOfficeData } from "../../../../../pages/api/boxoffice"; // 박스오피스 API
+// import { fetchBoxOfficeData } from "../../../../../pages/api/boxoffice"; // 박스오피스 API
 import { fetchMovieDetails } from "../../../units/openapi/movie/movieDetails"; // KMDB API
+
+const fetchBoxOfficeData = async () => {
+  try {
+    const response = await fetch("/api/boxoffice");
+    const json = await response.json();
+    return json.movies;
+  } catch (error) {
+    console.error("박스오피스 데이터를 가져오는 데 실패했습니다:", error);
+    return [];
+  }
+};
 
 export default function LayoutMovieWrapTitle01({
   boxOfficeData,
@@ -43,8 +55,11 @@ export default function LayoutMovieWrapTitle01({
 
         // 영화 상세 정보를 가져오기
         const details = await Promise.all(
-          boxOfficeMovies.slice(0, 5).map(async (movie) => {
-            const movieDetail = await fetchMovieDetails(movie.movieCd);
+          boxOfficeMovies.slice(0, 5).map(async (movie: BoxOfficeMovie) => {
+            const movieDetail = await fetchMovieDetails(
+              movie.movieCd,
+              movie.movieNm
+            );
             return movieDetail ? movieDetail : null; // 영화 상세 정보가 있을 경우에만 처리
           })
         );

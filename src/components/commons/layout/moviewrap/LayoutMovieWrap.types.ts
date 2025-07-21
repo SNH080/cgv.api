@@ -13,11 +13,14 @@ export interface FooterPresenterProps {
 // boxOfficeData를 props로 받습니다.
 export interface LayoutMovieWrapTitle01Props {
   boxOfficeData: {
+    movieCd: string | null | undefined;
     ranking: string;
     posterUrl: string;
     rank: string; // 박스오피스 순위
     movieNm: string; // 영화 제목
     // 추가 필드 필요시 더 추가
+    boxOfficeData: BoxOfficeMovie[];
+    openDt: string;
   }[];
 }
 
@@ -37,4 +40,13 @@ export interface Movie {
   audiAcc: string; // 누적 관객 수
   scrnCnt: string; // 상영 스크린 수
   showCnt: string; // 상영 횟수
+}
+
+export interface BoxOfficeMovie {
+  movieCd: string;
+  ranking: string;
+  posterUrl: string;
+  rank: string;
+  movieNm: string;
+  // 추가 필드 있으면 추가
 }

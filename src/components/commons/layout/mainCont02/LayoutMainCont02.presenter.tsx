@@ -1,9 +1,13 @@
+// LayoutMainCont02.presenter.tsx
+
 import * as S from "./LayoutMainCont02.styles";
 import type { ILayoutMainCont02Props } from "./LayoutMainCont02.types";
 
-export default function LayoutMainCont02UI(
-  props: ILayoutMainCont02Props
-): JSX.Element {
+export default function LayoutMainCont02UI({
+  items,
+  selectedIndex,
+  handleItemClick,
+}: ILayoutMainCont02Props): JSX.Element {
   return (
     <S.SpecialCinemaWrap>
       <S.Header>
@@ -15,32 +19,28 @@ export default function LayoutMainCont02UI(
       </S.Header>
       <S.ContentWrap>
         <S.CinemaImgWrap>
-          {props.selectedIndex !== null && (
+          {selectedIndex !== null && (
             <S.CinemaImg
               src={`/images/layout/specialCinema/cinema0${
-                props.selectedIndex + 1
+                selectedIndex + 1
               }.png`}
-              alt={`Cinema ${props.selectedIndex + 1}`}
+              alt={`Cinema ${selectedIndex + 1}`}
             />
           )}
 
-          {props.selectedIndex !== null && (
+          {selectedIndex !== null && (
             <S.CinemaTextWrap>
-              <S.CinemaTitle>
-                {props.items[props.selectedIndex].title}
-              </S.CinemaTitle>
-              <S.CinemaText>
-                {props.items[props.selectedIndex].description}
-              </S.CinemaText>
+              <S.CinemaTitle>{items[selectedIndex].title}</S.CinemaTitle>
+              <S.CinemaText>{items[selectedIndex].description}</S.CinemaText>
             </S.CinemaTextWrap>
           )}
         </S.CinemaImgWrap>
         <S.CinemaList>
-          {props.items.map((item, index) => (
+          {items.map((item, index) => (
             <S.CinemaListLi
               key={index}
-              onClick={() => props.handleItemClick(index)}
-              isSelected={props.selectedIndex === index}
+              onClick={() => handleItemClick(index)}
+              isSelected={selectedIndex === index}
             >
               <S.CinemaTitle>{item.title}</S.CinemaTitle>
               <S.CinemaText>{item.description}</S.CinemaText>

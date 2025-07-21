@@ -6,7 +6,7 @@ import LayoutMainCont02 from "./mainCont02/LayoutMainCont02.container";
 // import LayoutMovieWrap from "./moviewrap/LayoutMovieWrap.container";
 import LayoutMainCont03 from "./mainCont03/LayoutMainCont03.container";
 import LayoutFooter from "./footer/LayoutFooter.container";
-import OpenapiMovie from "../../units/openapi/movie/OpenapiMovie.container";
+// import OpenapiMovie from "../../units/openapi/movie/OpenapiMovie.container";
 import TestApi from "../../units/openapi/movie/testApi";
 
 const Body = styled.div`
@@ -26,7 +26,7 @@ export default function Layout(props: ILayoutProps): JSX.Element {
       <LayoutHeader />
       <LayoutNavigation />
       <LayoutBanner />
-      <OpenapiMovie />
+      {/* <OpenapiMovie /> */}
       {/* <LayoutMovieWrap /> */}
       <TestApi />
       <LayoutMainCont02 />

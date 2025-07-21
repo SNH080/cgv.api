@@ -21,3 +21,5 @@ export interface Movie {
   showCnt: string; // 상영 횟수
   posterUrl?: string; // 포스터 URL (선택적)
 }
+
+export interface OpenapiKmdbProps {}

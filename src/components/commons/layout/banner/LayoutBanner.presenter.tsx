@@ -27,11 +27,11 @@ export default function LayoutBannerUI(): JSX.Element {
         <SliderItem
           src="https://www.youtube.com/embed/M25PkCDaUEg?autoplay=1&mute=1&controls=0&loop=1&playlist=M25PkCDaUEg"
           title="레전드 위스키의 부활을 위해🥃 《코마다 위스키 패밀리》 메인 예고편 CGV #최초공개"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></SliderItem>
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
         <TextBackground>
           <MovieTextWrap>
             <MovieTitle>코마다 위스키 패밀리</MovieTitle>

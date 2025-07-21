@@ -27,6 +27,7 @@ export default async function handler(
 
     res.status(200).json({ movies });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    const err = error as Error;
+    res.status(500).json({ error: err.message });
   }
 }
