@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "graphql-codegen"
+    "generate": "graphql-codegen",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
@@ -57,11 +59,13 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.1",
+    "gh-pages": "^6.3.0",
     "husky": "^8.0.3",
     "prettier": "2.8.3",
     "typescript": "*"
   },
   "resolutions": {
     "@types/react": "17.0.2"
-  }
+  },
+  "homepage": "https://SNH080.github.io/cgv-project"
 }
