@@ -67,5 +67,8 @@
   "resolutions": {
     "@types/react": "17.0.2"
   },
-  "homepage": "https://SNH080.github.io/cgv-project"
+  "homepage": "https://SNH080.github.io/cgv-project",
+  "engines": {
+    "node": "18.x"
+  }
 }
