@@ -14,7 +14,7 @@ export default async function handler(
 
   try {
     const { data } = await axios.get(
-      `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${KOBIS_API_KEY}&targetDt=${targetDt}`
+      `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${KOBIS_API_KEY}&targetDt=${targetDt}`
     );
 
     const movies = data.boxOfficeResult.dailyBoxOfficeList
