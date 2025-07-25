@@ -1,8 +1,5 @@
-// src/pages/api/movieDetails.ts
-
 import { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
-// import { initDb } from "../../utils/db";
 import { Translate } from "@google-cloud/translate/build/src/v2";
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
@@ -40,16 +37,6 @@ export default async function handler(
       .replace(/['",!?.]/g, "")
       .trim();
     const encodedTitle = encodeURIComponent(sanitizedTitle);
-
-    // const db = await initDb();
-    // const cachedMovie = await db.get("SELECT * FROM movies WHERE title = ?", [
-    //   sanitizedTitle,
-    // ]);
-
-    // if (cachedMovie) {
-    //   res.status(200).json(cachedMovie);
-    //   return;
-    // }
 
     const year =
       typeof releaseDate === "string" ? releaseDate.substring(0, 4) : "";
@@ -92,16 +79,6 @@ export default async function handler(
       hasPoster: !!posterUrl,
       plot,
     };
-
-    // await db.run(
-    //   "INSERT INTO movies (title, releaseDate, posterUrl, plot) VALUES (?, ?, ?, ?)",
-    //   [
-    //     movieDetails.title,
-    //     movieDetails.releaseDate,
-    //     movieDetails.posterUrl,
-    //     movieDetails.plot,
-    //   ]
-    // );
 
     res.status(200).json(movieDetails);
   } catch (error: any) {
